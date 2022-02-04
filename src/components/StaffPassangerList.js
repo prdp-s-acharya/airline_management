@@ -14,8 +14,7 @@ function PassangerList(props) {
     } else {
       setPassngers([...props.passangers]);
     }
-    // 
-    
+    //
   }, [props]);
 
   const flightId = useParams();
@@ -38,22 +37,29 @@ function PassangerList(props) {
 
   const displayPassangers = filterdPassangers.map((p) => {
     return (
-      <div key={p.id}>
-        <h2>{p.name}</h2>
-        <p>{p.age}</p>
-        <input
-          type="checkbox"
-          value={p.checkIn}
-          name="chack In"
-          onChange={() => {
-            boardIn(p.id);
-          }}
-        />
+      <div className="col-3">
+        <div className="card">
+          <div className="card-body">
+            <h2 className="card-title">{p.name}</h2>
+            <p className="card-text">{p.age}</p>
+            <div class="form-check">
+              <input
+                type="checkbox"
+                value={p.checkIn}
+                name="chackIn"
+                onChange={() => {
+                  boardIn(p.id);
+                }}
+              />
+              <label class="form-check-label">Check In</label>
+            </div>
+          </div>
+        </div>
       </div>
     );
   });
 
-  return <>{displayPassangers}</>;
+  return <div className="row">{displayPassangers}</div>;
 }
 
 function mapStateToProps(state, ownProps) {

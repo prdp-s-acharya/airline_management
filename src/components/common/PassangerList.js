@@ -23,16 +23,28 @@ function PassangerList(props) {
     (p) => p.flightId === parseInt(flightId.flightId)
   );
   const displayPassangers = filterdPassangers.map((p) => (
-    <div key={p.id}>
-      <h2>{p.name}</h2>
-      <p>{p.age}</p>
-      <Link to={`/managePassangers/${p.id}/edit`} params={{ p }}>
-        edit
-      </Link>
+    <div className="col-3">
+      <div className="card">
+        <div className="card-body">
+          <h2 className="card-title">{p.name}</h2>
+          <p className="card-text">{p.age}</p>
+
+          <Link to={`/managePassangers/${p.id}/edit`} params={{ p }}>
+            <button className="btn btn-primary">edit</button>
+          </Link>
+        </div>
+      </div>
     </div>
+    // <div key={p.id}>
+    //   <h2>{p.name}</h2>
+    //   <p>{p.age}</p>
+    //   <Link to={`/managePassangers/${p.id}/edit`} params={{ p }}>
+    //     edit
+    //   </Link>
+    // </div>
   ));
 
-  return <>{displayPassangers}</>;
+  return <div className="row">{displayPassangers}</div>;
 }
 
 function mapStateToProps(state, ownProps) {

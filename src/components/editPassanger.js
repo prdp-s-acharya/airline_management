@@ -28,7 +28,6 @@ function EditPassanger(props) {
 
   return (
     <>
-      {passangerId}
       <EditForm
         passanger={editPassanger}
         onChange={handleChange}

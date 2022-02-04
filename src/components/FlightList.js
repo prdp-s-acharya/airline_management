@@ -7,14 +7,30 @@ function FlightList() {
 
   const displayFlight = avlFlights.map((flight) => {
     return (
-      <div key={flight.id}>
-        <Link to={`/managePassangers/${flight.id}`}>
-          <h4>{flight.name}</h4>
-        </Link>
-      </div>
+      <tr key={flight.id}>
+        <th scope="row">1</th>
+        <td> {flight.id}</td>
+        <td>{flight.name}</td>
+        <td>
+          <Link to={`/managePassangers/${flight.id}`}>Passangers</Link>
+        </td>
+      </tr>
     );
   });
-  return <>{displayFlight}</>;
+  return (
+    <>
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Time</th>
+          </tr>
+        </thead>
+        <tbody>{displayFlight}</tbody>
+      </table>
+    </>
+  );
 }
 
 export { FlightList };

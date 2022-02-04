@@ -15,7 +15,7 @@ function App() {
   const store = configureStore();
   return (
     <ReduxProvider store={store}>
-      <div className="App">
+      <div className="container">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
