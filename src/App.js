@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { configureStore } from "./components/Redux/configureStore";
+import Admin from "./components/adminComponent/admin";
+import { Routes, Route } from "react-router-dom";
+import PassangerList from "./components/common/PassangerList";
+import Home from "./components/Home";
+import Navbar from "./components/common/Navbar";
+import { Provider as ReduxProvider } from "react-redux";
+import EditPassanger from "./components/editPassanger";
+import AirlineStaff from "./components/AirlineStaff";
+import StaffPassangerList from "./components/StaffPassangerList";
+import StaffFlightList from "./components/StaffFlightList";
 
 function App() {
+  const store = configureStore();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ReduxProvider store={store}>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route
+            path="/managePassangers/:flightId"
+            element={<PassangerList />}
+          />
+          <Route
+            path="/managePassangers/:passangerId/edit"
+            element={<EditPassanger />}
+          />
+          <Route path="/staff" element={<AirlineStaff />} />
+          <Route
+            path="/staff/:flightId/passangers"
+            element={<StaffPassangerList />}
+          />
+        </Routes>
+      </div>
+    </ReduxProvider>
   );
 }
 
