@@ -14,9 +14,8 @@ function PassangerList(props) {
     } else {
       setPassngers([...props.passangers]);
     }
-    // return passangers.forEach((element) => {
-    //   props.savePassanger(element);
-    // });
+    // 
+    
   }, [props]);
 
   const flightId = useParams();
