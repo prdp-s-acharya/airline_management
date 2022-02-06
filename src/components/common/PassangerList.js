@@ -23,11 +23,20 @@ function PassangerList(props) {
     (p) => p.flightId === parseInt(flightId.flightId)
   );
   const displayPassangers = filterdPassangers.map((p) => (
-    <div className="col-3">
+    <div key={p.id} className="col-sm-3">
       <div className="card">
         <div className="card-body">
           <h2 className="card-title">{p.name}</h2>
-          <p className="card-text">{p.age}</p>
+          <p className="card-text">age :{p.age}</p>
+          <p className="card-text">passport no :{p.passport}</p>
+          <p className="card-text">seat no :{p.seatNo}</p>
+          <p className="card-text">Meal Preference :{p.mealPreference}</p>
+          <div>
+            <p>services :</p>
+            {p.ancillaryServices.map((ser) => (
+              <p style={{ padding: "0px 0px 0px 20px" }}>{ser}</p>
+            ))}
+          </div>
 
           <Link to={`/managePassangers/${p.id}/edit`} params={{ p }}>
             <button className="btn btn-primary">edit</button>

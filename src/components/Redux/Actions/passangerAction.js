@@ -1,5 +1,4 @@
 import * as types from "./actionTypes";
-import { ReadPassanger, WritePassanger } from "../../../data/ReadWriteData";
 
 const baseUrl = "http://localhost:8080/api";
 

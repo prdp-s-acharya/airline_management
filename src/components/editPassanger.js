@@ -25,6 +25,15 @@ function EditPassanger(props) {
       throw error;
     });
   }
+  function handleAddService(event) {
+    setEditPassanger((prevPassanger) => ({
+      ...prevPassanger,
+      ancillaryServices: [
+        ...prevPassanger.ancillaryServices,
+        event.target.value,
+      ],
+    }));
+  }
 
   return (
     <>
@@ -32,6 +41,7 @@ function EditPassanger(props) {
         passanger={editPassanger}
         onChange={handleChange}
         onSave={handleSubmit}
+        onAddService={handleAddService}
       />
     </>
   );

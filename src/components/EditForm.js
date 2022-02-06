@@ -1,4 +1,5 @@
 import React from "react";
+import AddService from "./AddServices";
 
 export default function EditForm(props) {
   return (
@@ -38,6 +39,23 @@ export default function EditForm(props) {
           onChange={props.onChange}
         />
       </div>
+      <div className="form-group">
+        <label>Passport No</label>
+        <input
+          className="form-control"
+          type="number"
+          name="passport"
+          label="passport"
+          value={props.passanger.passport}
+          onChange={props.onChange}
+        />
+      </div>
+      {/* <div className="form-group">
+        <AddService
+          value={props.passanger.acancillaryServices}
+          onAddService={props.onAddService}
+        />
+      </div> */}
 
       <button type="submit" className="btn btn-primary">
         {" "}
