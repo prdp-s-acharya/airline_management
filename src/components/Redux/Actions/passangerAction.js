@@ -1,6 +1,6 @@
 import * as types from "./actionTypes";
 
-const baseUrl = "http://localhost:8080/api/";
+const baseUrl = "http://localhost:8080/api/"
 
 export function updatePassangerSuccess(passanger) {
   return { type: types.UPDATE_PASSANGER_SUCCESS, data: passanger };
@@ -24,6 +24,7 @@ async function handleResponse(response) {
 export function loadPassangers() {
   const getPassanger = () => {
     const data = fetch(`${baseUrl}passangers`)
+
       .then(handleResponse)
       .catch((error) => {
         throw error;
@@ -51,6 +52,7 @@ export function savePassanger(passanger) {
       body: JSON.stringify(passanger),
     };
     const data = fetch(`${baseUrl}passangers`, requestOptions)
+
       .then(handleResponse)
       .catch((error) => {
         throw error;

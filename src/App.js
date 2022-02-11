@@ -26,6 +26,7 @@ function App() {
           />
           <Route
             path="/admin/:flightId/managePassangers/:passangerId/edit"
+
             element={<EditPassanger />}
           />
           <Route path="/staff" element={<AirlineStaff />} />

@@ -13,6 +13,7 @@ function FlightList() {
         <td>{flight.name}</td>
         <td>
           <Link to={`${flight.id}/managePassangers/`}>Passangers</Link>
+
         </td>
       </tr>
     );
