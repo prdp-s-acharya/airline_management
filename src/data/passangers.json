@@ -1,0 +1,59 @@
+{
+  "passangers": [
+    {
+      "id": 3,
+      "name": "abc",
+      "age": 32,
+      "passport": 123,
+      "flightId": 1,
+      "seatNo": 1,
+      "checkIn": false,
+      "ancillaryServices": ["hospital", "special meal"],
+      "mealPreference": "veg"
+    },
+    {
+      "id": 4,
+      "name": "abc",
+      "age": 32,
+      "passport": 123,
+      "flightId": 1,
+      "seatNo": 1,
+      "checkIn": false,
+      "ancillaryServices": ["special meal"],
+      "mealPreference": "veg"
+    },
+    {
+      "id": 5,
+      "name": "absc",
+      "age": 32,
+      "passport": 123,
+      "flightId": 2,
+      "seatNo": 1,
+      "checkIn": false,
+      "ancillaryServices": [],
+      "mealPreference": "veg"
+    },
+    {
+      "id": 1,
+      "name": "abcrt",
+      "age": 32,
+      "passport": 123,
+      "flightId": 1,
+      "seatNo": 1,
+      "checkIn": false,
+      "ancillaryServices": [],
+      "mealPreference": "veg"
+    },
+    {
+      "id": 2,
+      "name": "abcer",
+      "age": 32,
+      "passport": 123,
+      "flightId": 1,
+      "seatNo": 1,
+      "checkIn": false,
+      "ancillaryServices": [],
+      "mealPreference": "veg"
+    }
+  ]
+}
