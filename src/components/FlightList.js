@@ -1,20 +1,36 @@
-import React from "react";
-import { flights } from "../data/flight";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { loadFlights } from "./Redux/Actions/flightAction";
 
-function FlightList() {
-  const [avlFlights, setAvlFlights] = React.useState(flights);
+function FlightList(props) {
+  const [flights, setFlights] = useState([...props.flights]);
 
-  const displayFlight = avlFlights.map((flight) => {
+  useEffect(() => {
+    if (props.flights.length === 0) {
+      props.loadFlights().catch((error) => {
+        alert("loading flights failed" + error);
+      });
+    } else {
+      setFlights([...props.flights]);
+    }
+  }, [props]);
+
+  const displayFlight = flights.map((flight) => {
     return (
       <tr key={flight.id}>
         <th scope="row">1</th>
         <td> {flight.id}</td>
         <td>{flight.name}</td>
-        <td>
-          <Link to={`${flight.id}/managePassangers/`}>Passangers</Link>
-
-        </td>
+        {props.from === "admin" ? (
+          <td>
+            <Link to={`${flight.id}/managePassangers/`}>Passangers</Link>
+          </td>
+        ) : (
+          <td>
+            <Link to={`${flight.id}/passangers/`}>Passangers</Link>
+          </td>
+        )}
       </tr>
     );
   });
@@ -34,4 +50,14 @@ function FlightList() {
   );
 }
 
-export { FlightList };
+function mapStateToProps(state, ownProps) {
+  return {
+    flights: state.flights,
+  };
+}
+
+const mapDispatchToProps = {
+  loadFlights,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(FlightList);

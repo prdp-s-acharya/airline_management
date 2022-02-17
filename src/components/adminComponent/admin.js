@@ -1,11 +1,11 @@
 import React from "react";
-import { FlightList } from "../FlightList";
+import FlightList from "../FlightList";
 
 function Admin() {
   return (
     <>
       <h1>admin Page</h1>
-      <FlightList />
+      <FlightList from="admin" />
     </>
   );
 }

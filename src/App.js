@@ -8,8 +8,6 @@ import Navbar from "./components/common/Navbar";
 import { Provider as ReduxProvider } from "react-redux";
 import EditPassanger from "./components/editPassanger";
 import AirlineStaff from "./components/AirlineStaff";
-import StaffPassangerList from "./components/StaffPassangerList";
-import StaffFlightList from "./components/StaffFlightList";
 
 function App() {
   const store = configureStore();
@@ -22,17 +20,16 @@ function App() {
           <Route path="/admin" element={<Admin />} />
           <Route
             path="/admin/:flightId/managePassangers/"
-            element={<PassangerList />}
+            element={<PassangerList from="admin" />}
           />
           <Route
             path="/admin/:flightId/managePassangers/:passangerId/edit"
-
             element={<EditPassanger />}
           />
           <Route path="/staff" element={<AirlineStaff />} />
           <Route
             path="/staff/:flightId/passangers"
-            element={<StaffPassangerList />}
+            element={<PassangerList from="staff" />}
           />
         </Routes>
       </div>

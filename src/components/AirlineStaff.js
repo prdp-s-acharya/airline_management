@@ -1,11 +1,11 @@
 import React from "react";
-import StaffFlightList from "./StaffFlightList";
+import FlightList from "./FlightList";
 
 function AirlineStaff() {
   return (
     <>
       <h1>Staff Page</h1>
-      <StaffFlightList />
+      <FlightList from="staff" />
     </>
   );
 }
